@@ -1,0 +1,9 @@
+..................................                                       [100%]
+============================== warnings summary ===============================
+..\..\..\..\..\..\..\resume-seven-20261114-r2\reviewer-env-1737\Lib\site-packages\stevedore\extension.py:185
+..\..\..\..\..\..\..\resume-seven-20261114-r2\reviewer-env-1737\Lib\site-packages\stevedore\extension.py:185
+..\..\..\..\..\..\..\resume-seven-20261114-r2\reviewer-env-1737\Lib\site-packages\stevedore\extension.py:185
+  The verify_requirements argument is now a no-op and is deprecated for removal. Remove the argument from calls.
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+34 passed, 3 warnings in 1.75s

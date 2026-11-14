@@ -1,0 +1,5 @@
+ERROR: usage: python -m pytest [options] [file_or_dir] [file_or_dir] [...]
+python -m pytest: error: unrecognized arguments: --disable-socket
+  inifile: None
+  rootdir: D:\hc\userFeedback\cache\repairs-126-1730-1743-and-seven-20261114-r1\seven\evaluation\uf-20261112-sec-subprocess-alias-retry-1\verification\acceptance-r1\replay-source
+

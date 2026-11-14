@@ -1,0 +1,31 @@
+The implementation is complete and verified. Here's a summary of the work.
+
+## 改动概览
+
+**新增 `bandit/core/name_resolution.py`（可复用的命名解析器）**
+`NameResolver` 对整个文件的 AST 做一次纯静态遍历，按 Python 词法作用域跟踪 import 和简单赋值，产出 `ast.Call 节点 → 已证实限定名` 的映射。它不执行源码、不跨文件、不靠正则，作为通用信息挂在 Context 上（`context.name_resolver` / `context.resolved_qualname`），任何插件都能复用——实际验证 B301/B324 等黑名单、B603/B607/B609 也自动获得了别名能力。
+
+**接入点（`node_visitor.py` + `context.py`）**
+每个文件解析后构建一次 resolver；`visit_Call` 先用原逻辑取限定名，resolver 有确证结果时才覆盖。B602 插件本身**未改判定逻辑**：`shell=True` 的判定、LOW/HIGH 严重性规则、issue 落在真正调用处（`get_lineno_for_call_arg("shell")`）全部沿用原约定。
+
+## 能证明到哪一级
+
+- `import subprocess as sp`、`from subprocess import run as r` 之后的简单赋值 `f = sp.run`
+- 多级别名链 `h = f`、经模块别名 `mod = sp; e = mod.run`
+- 元组/列表对应赋值 `a, b = sp.run, sp.Popen`（含位置匹配；长度不符或带 `*` 解包则不报）
+- 闭包只读、if 两路指向一致、lambda/推导式读外层、async 函数
+
+## 作用域切断（避免误报）
+
+函数形参、局部 `def`、后续重绑定、`del`、重复 import 遮蔽、`global`/`nonlocal`、类体名不泄漏进方法、**函数整体局部性**（赋值前的引用不套外层名字）都已正确处理；if 两路不一致、for/while 可能回边重绑定、try/except、with、match/case 捕获名、RHS 是调用/下标/属性写入等不确定情形一律只保留能证明的，不报猜测。
+
+## 未覆盖的动态别名（保守不判）
+
+RHS 为任意调用结果（`f = get_runner()`）、`getattr`/`setattr`、字典或容器间接取值、跨文件/跨模块重绑定、装饰器改写、海象运算符的复杂作用域、运行时才确定的属性。
+
+## 测试
+
+- `tests/unit/core/test_name_resolution.py`：28 个用例，覆盖上述全部命中与切断场景
+- `examples/subprocess_function_aliases.py` + 功能测试：12 个 TP（必须 B602）与 13 个 FP（不得 B602），并断言 issue 行号正是调用处
+
+**验证结果**：新增 29 个测试全部通过；全套测试失败数与改动前完全一致（40 个均为环境性预存失败：Windows 无符号链接权限、缺 `sarif_om`、Python 3.14 下两个既有功能测试），无新增回归。

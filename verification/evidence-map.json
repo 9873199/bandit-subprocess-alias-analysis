@@ -1,0 +1,52 @@
+{
+  "process": [
+    {
+      "native_lines": [
+        186,
+        190,
+        195,
+        202,
+        206,
+        210,
+        332,
+        429,
+        471,
+        727,
+        728
+      ],
+      "fact": "Resolver information added but unknown results retain legacy imported qualname; native tests cover assignment shadow and ordinary functions yet omit later local-def and module-alias parameter cases."
+    }
+  ],
+  "requirements": [
+    {
+      "files": [
+        "bandit/core/name_resolution.py",
+        "bandit/core/node_visitor.py",
+        "bandit/core/context.py"
+      ],
+      "facts": "Reusable static AST alias resolver; _bound_names_under misses root FunctionDef binder, visit_Call falls back to import-only name when unresolved."
+    },
+    {
+      "files": [
+        "examples/subprocess_function_aliases.py",
+        "tests/unit/core/test_name_resolution.py"
+      ],
+      "facts": "Native functional and resolver checks exist; direct module parameter shadow and later local def omitted."
+    }
+  ],
+  "independent_evidence": [
+    "verification/acceptance-r2/independent-acceptance.json",
+    "verification/acceptance-r2/feature-and-shell-regression.json",
+    "acceptance-contract-review.json"
+  ],
+  "excluded_errors": [
+    "acceptance-r1 unrecognized --disable-socket due missing reviewer plugin, no product penalty.",
+    "Global/nonlocal conservative misses not separate score penalty.",
+    "No independent claim attributing all40 native upstream failures."
+  ],
+  "time": "2026-11-14T13:34:57+08:00",
+  "uid": 1737,
+  "frozen_commit": "25fa1400f95821abddaf7633bf1d0b2c552dbce3",
+  "native_trace_sha256": "76780e7806edf30a57bb27529653365ea21146f4c0c59757404526da2224d59a",
+  "no_model_source_changes_after_freeze": true
+}

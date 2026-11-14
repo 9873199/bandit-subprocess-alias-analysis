@@ -1,0 +1,26 @@
+{
+  "time": "2026-11-14T13:26:30+08:00",
+  "argv": [
+    "D:\\hc\\userFeedback\\cache\\resume-seven-20261114-r2\\reviewer-env-1737\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/unit/core/test_name_resolution.py",
+    "tests/functional/test_functional.py::FunctionalTests::test_subprocess_function_aliases",
+    "tests/functional/test_functional.py::FunctionalTests::test_subprocess_shell",
+    "tests/functional/test_functional.py::FunctionalTests::test_imports_aliases",
+    "tests/functional/test_functional.py::FunctionalTests::test_partial_path",
+    "tests/functional/test_functional.py::FunctionalTests::test_wildcard_injection",
+    "tests/functional/test_functional.py::FunctionalTests::test_popen_wrappers",
+    "-q",
+    "--tb=short",
+    "--disable-socket",
+    "-p",
+    "no:cacheprovider",
+    "--junitxml=D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r2/shell-results.xml"
+  ],
+  "cwd": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r2\\replay-source",
+  "exit_code": 0,
+  "stdout_log": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r2\\feature-and-shell-regression.stdout.log",
+  "stderr_log": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r2\\feature-and-shell-regression.stderr.log"
+}

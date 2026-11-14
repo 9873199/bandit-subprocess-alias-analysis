@@ -1,0 +1,29 @@
+{
+  "time": "2026-11-14T13:22:22+08:00",
+  "uid": 1737,
+  "run_id": "uf-20261112-sec-subprocess-alias-retry-1",
+  "actual": {
+    "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\tasks\\subprocess-alias\\env\\Scripts\\python.exe",
+    "modules": {
+      "bandit": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r1\\replay-source\\bandit\\__init__.py",
+      "bandit.core.name_resolution": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r1\\replay-source\\bandit\\core\\name_resolution.py"
+    }
+  },
+  "replay_source": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r1\\replay-source",
+  "frozen_hashes_unchanged": true,
+  "replay_source_hashes_unchanged": true,
+  "dependency_environment": "Reused the task dependency environment; exact pip freeze retained",
+  "commands": [
+    {
+      "name": "independent-acceptance",
+      "exit_code": 4
+    },
+    {
+      "name": "feature-and-shell-regression",
+      "exit_code": 4
+    }
+  ],
+  "score": null,
+  "semantic_review": "PENDING"
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2026-11-14T13:29:01+08:00",
+  "decisive_failures": [
+    "local-before-def: guaranteed Python local name falsely resolved as outer alias",
+    "module-shadow: parameter shadows imported module but legacy fallback reports B602"
+  ],
+  "additional_observations": [
+    "global and nonlocal read aliases conservatively left unknown; reported as documented limitation, not an independent score penalty"
+  ],
+  "prior_tool_error": "acceptance-r1 lacks pytest-socket; no test ran, no product penalty",
+  "score_basis_does_not_use_failure_ratio": true
+}

@@ -1,0 +1,7 @@
+.......FF..F...F.............                                            [100%]
+=========================== short test summary info ===========================
+FAILED ..\test_subprocess_alias_review.py::test_resolve_alias_without_executing_code[global]
+FAILED ..\test_subprocess_alias_review.py::test_resolve_alias_without_executing_code[nonlocal]
+FAILED ..\test_subprocess_alias_review.py::test_resolve_alias_without_executing_code[local-before-def]
+FAILED ..\test_subprocess_alias_review.py::test_resolve_alias_without_executing_code[module-shadow]
+4 failed, 25 passed, 3 warnings in 0.83s

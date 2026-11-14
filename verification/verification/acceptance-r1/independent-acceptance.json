@@ -1,0 +1,21 @@
+{
+  "time": "2026-11-14T13:22:20+08:00",
+  "argv": [
+    "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\tasks\\subprocess-alias\\env\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r1/test_subprocess_alias_review.py",
+    "--confcutdir=D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r1",
+    "-q",
+    "--tb=short",
+    "--disable-socket",
+    "-p",
+    "no:cacheprovider",
+    "--junitxml=D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r1/independent-results.xml"
+  ],
+  "cwd": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r1\\replay-source",
+  "exit_code": 4,
+  "stdout_log": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r1\\independent-acceptance.stdout.log",
+  "stderr_log": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r1\\independent-acceptance.stderr.log"
+}

@@ -1,0 +1,72 @@
+{
+  "title": "Python call alias analysis",
+  "directory": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\recording\\r1",
+  "cwd": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r2\\replay-source",
+  "capture": "wgc",
+  "console_start_delay_seconds": 15,
+  "environment": {
+    "PYTHONPATH": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r2\\replay-source\\src;D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r2\\replay-source;D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r2",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONUTF8": "1"
+  },
+  "commands": [
+    {
+      "id": "command-1",
+      "label": "Static call attribution",
+      "display": "python alias-scan-example.py",
+      "argv": [
+        "D:\\hc\\userFeedback\\cache\\resume-seven-20261114-r2\\reviewer-env-1737\\Scripts\\python.exe",
+        "-B",
+        "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r2\\alias-scan-example.py"
+      ],
+      "start_at_seconds": 0
+    },
+    {
+      "id": "command-2",
+      "label": "Scope and alias boundaries",
+      "display": "python -m pytest checks/test_subprocess_alias_review.py -q",
+      "argv": [
+        "D:\\hc\\userFeedback\\cache\\resume-seven-20261114-r2\\reviewer-env-1737\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r2\\test_subprocess_alias_review.py",
+        "--confcutdir=D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r2",
+        "--disable-socket",
+        "-q",
+        "--tb=no",
+        "--disable-warnings",
+        "--show-capture=no",
+        "-p",
+        "no:cacheprovider"
+      ],
+      "start_at_seconds": 25
+    },
+    {
+      "id": "command-3",
+      "label": "Supported aliases and shell rules",
+      "display": "python -m pytest selected_shell_tests -q",
+      "argv": [
+        "D:\\hc\\userFeedback\\cache\\resume-seven-20261114-r2\\reviewer-env-1737\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "tests/unit/core/test_name_resolution.py",
+        "tests/functional/test_functional.py::FunctionalTests::test_subprocess_function_aliases",
+        "tests/functional/test_functional.py::FunctionalTests::test_subprocess_shell",
+        "tests/functional/test_functional.py::FunctionalTests::test_imports_aliases",
+        "tests/functional/test_functional.py::FunctionalTests::test_partial_path",
+        "tests/functional/test_functional.py::FunctionalTests::test_wildcard_injection",
+        "tests/functional/test_functional.py::FunctionalTests::test_popen_wrappers",
+        "--disable-socket",
+        "-q",
+        "--tb=no",
+        "--disable-warnings",
+        "--show-capture=no",
+        "-p",
+        "no:cacheprovider"
+      ],
+      "start_at_seconds": 50
+    }
+  ]
+}

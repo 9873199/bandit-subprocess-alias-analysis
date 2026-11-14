@@ -1,0 +1,34 @@
+{
+  "time": "2026-11-14T13:34:57+08:00",
+  "uid": 1737,
+  "container": false,
+  "actual": {
+    "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "D:\\hc\\userFeedback\\cache\\resume-seven-20261114-r2\\reviewer-env-1737\\Scripts\\python.exe",
+    "modules": {
+      "bandit": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r2\\replay-source\\bandit\\__init__.py",
+      "bandit.core.name_resolution": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\evaluation\\uf-20261112-sec-subprocess-alias-retry-1\\verification\\acceptance-r2\\replay-source\\bandit\\core\\name_resolution.py"
+    }
+  },
+  "dependency_lock": "-e git+file:///D:/hc/userFeedback/cache/execution-security-next10-20261112/sources/subprocess-alias-api@2d5467c45c3189f4d7d07e8022276bc73a478abd#egg=bandit\nbeautifulsoup4==4.15.0\ncolorama==0.4.6\ncoverage==7.17.2\nfixtures==4.3.2\ngitdb==4.0.12\nGitPython==3.2.1\niniconfig==2.3.1\nmarkdown-it-py==4.3.0\nmdurl==0.1.2\npackaging==26.3\npbr==7.1.3\npluggy==1.7.0\nPygments==2.21.0\npytest==9.2.0\npytest-socket==0.8.0\nPyYAML==6.0.3\nrich==15.0.0\nsetuptools==84.2.1\nsmmap==5.0.3\nsoupsieve==4.1\nstevedore==5.9.1\ntestscenarios==0.7.0\ntesttools==2.9.1\ntyping_extensions==4.16.0\n",
+  "dependency_environment": "Separate reviewer verification environment; exact pip freeze retained; formal model environment unchanged",
+  "frozen_source_import_verified": true,
+  "external_runtime_services": false,
+  "environment_limits": [
+    "Windows native packages and Bandit plugin metadata; no container or external runtime service.",
+    "Independent selected34 regression tests passed; full upstream native failure attribution not independently completed."
+  ],
+  "task_preparation": {
+    "time": "2026-11-14T03:34:36+08:00",
+    "uid": 1737,
+    "status": "ENV_READY",
+    "workspace": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\sources\\subprocess-alias",
+    "source_path": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\sources\\subprocess-alias",
+    "python": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\tasks\\subprocess-alias\\env\\Scripts\\python.exe",
+    "baseline_evidence": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\tasks\\subprocess-alias\\baseline.json",
+    "container": false,
+    "runtime_services": false,
+    "clean_source": true,
+    "repository_instructions": "D:\\hc\\userFeedback\\cache\\repairs-126-1730-1743-and-seven-20261114-r1\\seven\\tasks\\subprocess-alias\\repository-instructions.json"
+  }
+}

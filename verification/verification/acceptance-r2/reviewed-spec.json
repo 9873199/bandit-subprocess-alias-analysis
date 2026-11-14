@@ -1,0 +1,61 @@
+{
+  "uid": 1737,
+  "run_id": "uf-20261112-sec-subprocess-alias-retry-1",
+  "revision": "acceptance-r2",
+  "reviewed": true,
+  "reviewer": "Codex primary reviewer, AI-assisted",
+  "frozen_trace_sha256": "76780e7806edf30a57bb27529653365ea21146f4c0c59757404526da2224d59a",
+  "product_modules": [
+    "bandit",
+    "bandit.core.name_resolution"
+  ],
+  "support_files": [
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\resume-seven-20261114-r2\\test_subprocess_alias_review_r2.py",
+      "path": "test_subprocess_alias_review.py",
+      "sha256": "27b881bc934e21722db4cdc524575ca58dfa82263530c9a97e962067803bf916"
+    }
+  ],
+  "commands": [
+    {
+      "name": "independent-acceptance",
+      "argv": [
+        "{python}",
+        "-B",
+        "-m",
+        "pytest",
+        "{verification}/test_subprocess_alias_review.py",
+        "--confcutdir={verification}",
+        "-q",
+        "--tb=short",
+        "--disable-socket",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml={verification}/independent-results.xml"
+      ]
+    },
+    {
+      "name": "feature-and-shell-regression",
+      "argv": [
+        "{python}",
+        "-B",
+        "-m",
+        "pytest",
+        "tests/unit/core/test_name_resolution.py",
+        "tests/functional/test_functional.py::FunctionalTests::test_subprocess_function_aliases",
+        "tests/functional/test_functional.py::FunctionalTests::test_subprocess_shell",
+        "tests/functional/test_functional.py::FunctionalTests::test_imports_aliases",
+        "tests/functional/test_functional.py::FunctionalTests::test_partial_path",
+        "tests/functional/test_functional.py::FunctionalTests::test_wildcard_injection",
+        "tests/functional/test_functional.py::FunctionalTests::test_popen_wrappers",
+        "-q",
+        "--tb=short",
+        "--disable-socket",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml={verification}/shell-results.xml"
+      ]
+    }
+  ],
+  "verification_python": "D:\\hc\\userFeedback\\cache\\resume-seven-20261114-r2\\reviewer-env-1737\\Scripts\\python.exe"
+}

@@ -1,0 +1,23 @@
+{
+  "independent": {
+    "passed": 25,
+    "failed": 4,
+    "decisive_failures": [
+      "local-before-def",
+      "module-shadow"
+    ],
+    "additional_observations": [
+      "global",
+      "nonlocal"
+    ]
+  },
+  "feature_shell_regression": {
+    "passed": 34,
+    "failed": 0
+  },
+  "initial_review_tool_error": {
+    "exit_code": 4,
+    "reason": "pytest-socket absent; no tests executed",
+    "scored": false
+  }
+}

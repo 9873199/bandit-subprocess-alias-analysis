@@ -1,0 +1,39 @@
+.......FF..F...F.............                                            [100%]
+================================== FAILURES ===================================
+______________ test_resolve_alias_without_executing_code[global] ______________
+..\test_subprocess_alias_review.py:46: in test_resolve_alias_without_executing_code
+    assert len(issues)==expected, [(i.lineno,i.text) for i in issues]
+E   AssertionError: []
+E   assert 0 == 1
+E    +  where 0 = len([])
+_____________ test_resolve_alias_without_executing_code[nonlocal] _____________
+..\test_subprocess_alias_review.py:46: in test_resolve_alias_without_executing_code
+    assert len(issues)==expected, [(i.lineno,i.text) for i in issues]
+E   AssertionError: []
+E   assert 0 == 1
+E    +  where 0 = len([])
+_________ test_resolve_alias_without_executing_code[local-before-def] _________
+..\test_subprocess_alias_review.py:46: in test_resolve_alias_without_executing_code
+    assert len(issues)==expected, [(i.lineno,i.text) for i in issues]
+E   AssertionError: [(5, 'subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell')]
+E   assert 1 == 0
+E    +  where 1 = len([<bandit.core.issue.Issue object at 0x00000242B0A03410>])
+__________ test_resolve_alias_without_executing_code[module-shadow] ___________
+..\test_subprocess_alias_review.py:46: in test_resolve_alias_without_executing_code
+    assert len(issues)==expected, [(i.lineno,i.text) for i in issues]
+E   AssertionError: [(4, 'subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell')]
+E   assert 1 == 0
+E    +  where 1 = len([<bandit.core.issue.Issue object at 0x00000242B0A03D10>])
+============================== warnings summary ===============================
+..\..\..\..\..\..\..\resume-seven-20261114-r2\reviewer-env-1737\Lib\site-packages\stevedore\extension.py:185
+..\..\..\..\..\..\..\resume-seven-20261114-r2\reviewer-env-1737\Lib\site-packages\stevedore\extension.py:185
+..\..\..\..\..\..\..\resume-seven-20261114-r2\reviewer-env-1737\Lib\site-packages\stevedore\extension.py:185
+  The verify_requirements argument is now a no-op and is deprecated for removal. Remove the argument from calls.
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED ..\test_subprocess_alias_review.py::test_resolve_alias_without_executing_code[global]
+FAILED ..\test_subprocess_alias_review.py::test_resolve_alias_without_executing_code[nonlocal]
+FAILED ..\test_subprocess_alias_review.py::test_resolve_alias_without_executing_code[local-before-def]
+FAILED ..\test_subprocess_alias_review.py::test_resolve_alias_without_executing_code[module-shadow]
+4 failed, 25 passed, 3 warnings in 1.14s
