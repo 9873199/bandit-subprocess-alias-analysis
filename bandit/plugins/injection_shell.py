@@ -151,6 +151,15 @@ def subprocess_popen_with_shell_equals_true(context, config):
     This plugin specifically scans for methods listed in `subprocess` section
     that have shell=True specified.
 
+    Direct function aliases are resolved as well.  After
+    ``import subprocess as sp`` or ``from subprocess import run as r``,
+    simple assignments (``f = sp.run``), alias chains (``g = f``) and
+    tuple/list assignments (``a, b = sp.run, sp.Popen``) are followed, so a
+    later ``f(cmd, shell=True)`` is reported at the call site using the same
+    rules as a direct ``subprocess.run`` call.  Only provable aliases are
+    reported: parameters, local definitions, reassignments, ``del``,
+    ``global``/``nonlocal`` and ambiguous control flow break the chain.
+
     .. code-block:: yaml
 
         shell_injection:

@@ -79,6 +79,25 @@ class Context:
         return self._context.get("qualname")
 
     @property
+    def resolved_qualname(self):
+        """Get the statically resolved qualified name of a call, if any.
+
+        Unlike :attr:`call_function_name_qual`, which may only reflect
+        import aliases, this is the assignment-aware resolution result
+        (for example resolving ``f`` in ``f = subprocess.run`` back to
+        ``subprocess.run``).  It is ``None`` when the call cannot be
+        proven to point at a specific function.
+
+        :return: The proven qualified name, or None
+        """
+        return self._context.get("resolved_qualname")
+
+    @property
+    def name_resolver(self):
+        """Get the file-wide :class:`NameResolver` used for this node."""
+        return self._context.get("name_resolver")
+
+    @property
     def call_keywords(self):
         """Get a dictionary of keyword parameters
 

@@ -467,6 +467,31 @@ class FunctionalTests(testtools.TestCase):
         }
         self.check_example("subprocess_shell.py", expect)
 
+    def test_subprocess_function_aliases(self):
+        """Test subprocess calls made through direct function aliases.
+
+        Aliases that provably point at a configured subprocess function
+        must be reported by B602, while parameters, local definitions,
+        reassignments and other unprovable names must not be mistaken
+        for subprocess calls.
+        """
+        expect = {
+            "SEVERITY": {"UNDEFINED": 0, "LOW": 16, "MEDIUM": 12, "HIGH": 0},
+            "CONFIDENCE": {"UNDEFINED": 0, "LOW": 12, "MEDIUM": 0, "HIGH": 16},
+        }
+        self.check_example("subprocess_function_aliases.py", expect)
+        # The B602 findings must point at the actual call sites rather
+        # than at the alias assignment lines.
+        self.run_example("subprocess_function_aliases.py")
+        issues = self.b_mgr.get_issue_list()
+        b602_lines = {
+            issue.lineno for issue in issues if issue.test_id == "B602"
+        }
+        self.assertEqual(
+            b602_lines,
+            {18, 22, 26, 30, 31, 35, 36, 41, 48, 56, 66, 71},
+        )
+
     def test_urlopen(self):
         """Test for dangerous URL opening."""
         expect = {

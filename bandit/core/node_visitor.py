@@ -7,6 +7,7 @@ import logging
 import operator
 
 from bandit.core import constants
+from bandit.core import name_resolution
 from bandit.core import tester as b_tester
 from bandit.core import utils as b_utils
 
@@ -30,6 +31,9 @@ class BanditNodeVisitor:
         self.testset = testset
         self.imports = set()
         self.import_aliases = {}
+        # Assignment-aware name resolver, rebuilt for every file.  It is
+        # created lazily in process() once the AST is available.
+        self.name_resolver = None
         self.tester = b_tester.BanditTester(
             self.testset, self.debug, nosec_lines, metrics
         )
@@ -92,6 +96,20 @@ class BanditNodeVisitor:
 
         self.context["qualname"] = qualname
         self.context["name"] = name
+
+        # Consult the assignment-aware name resolver so that direct
+        # aliases such as ``f = subprocess.run; f(...)`` are attributed
+        # to the function they provably point at.  When it has no proven
+        # answer, keep the legacy import-only qualified name.
+        resolved = (
+            self.name_resolver.resolve_call(node)
+            if self.name_resolver is not None
+            else None
+        )
+        self.context["resolved_qualname"] = resolved
+        if resolved is not None:
+            self.context["qualname"] = resolved
+            self.context["name"] = resolved.split(".")[-1]
 
         self.update_scores(self.tester.run_tests(self.context, "Call"))
 
@@ -190,6 +208,7 @@ class BanditNodeVisitor:
         self.context = {}
         self.context["imports"] = self.imports
         self.context["import_aliases"] = self.import_aliases
+        self.context["name_resolver"] = self.name_resolver
 
         if self.debug:
             LOG.debug(ast.dump(node))
@@ -283,6 +302,10 @@ class BanditNodeVisitor:
         :return score: the aggregated score for the current file
         """
         f_ast = ast.parse(data)
+        # Build the assignment-aware name resolution information for the
+        # whole file before bandit's own traversal starts.  It only reads
+        # the AST and never executes the scanned source.
+        self.name_resolver = name_resolution.NameResolver(f_ast)
         self.generic_visit(f_ast)
         # Run tests that do not require access to the AST,
         # but only to the whole file source:
